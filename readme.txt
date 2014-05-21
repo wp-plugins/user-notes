@@ -26,3 +26,4 @@ That's it!
 
 = 1.0.0 =
 * Initial release on wordpress.org
+* Blue Pencil Icon from [turbomilk](http://turbomilk.com/)
