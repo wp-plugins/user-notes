@@ -3,7 +3,7 @@ Contributors: cartpauj
 Tags: user, users, note, notes, individual, private, private user notes, record, records
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 Keep private notes about each of your users that only Administrators can see.
 
@@ -23,6 +23,10 @@ All you'll need to do to get this setup is:
 That's it!
 
 == Changelog ==
+
+= 1.0.1 =
+* Made "View Note" text stand out more in the column
+* When hovering over a "View Note" link, you now see the first 100 characters of the note.
 
 = 1.0.0 =
 * Initial release on wordpress.org
