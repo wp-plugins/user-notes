@@ -3,7 +3,7 @@
 Plugin Name: User Notes
 Plugin URI: http://cartpauj.com
 Description: Keep private notes about each of your users that only Administrators can see.
-Version: 1.0.0
+Version: 1.0.1
 Author: Cartpauj
 Author URI: http://cartpauj.com
 Text Domain: user-notes
@@ -76,10 +76,13 @@ function user_notes_display_column($val, $col_name, $user_id) {
     
     //If no notes -- return none
     if(empty($notes))
-      return '<a href="' . admin_url('user-edit.php?user_id=' . $user_id . '#wp-user_notes_note-wrap') . '">' . __('Add', 'user-notes') . '</a>';
+      return '<a href="' . admin_url('user-edit.php?user_id=' . $user_id . '#wp-user_notes_note-wrap') . '">' . __('Add Note', 'user-notes') . '</a>';
+    
+    $notes_excerpt = strip_tags(substr($notes, 0, 100)) . ' ...';
+    $notes_excerpt = trim(preg_replace('/\s+/', ' ', $notes_excerpt));
     
     $user = new WP_User($user_id);
-    $title = __('Note for', 'user-notes') . ': ' . $user->user_login;
+    $title = __('Note for', 'user-notes') . ' ' . $user->user_login . "\n" . $notes_excerpt;
     
     //Get the dilimiter
     $uri = $_SERVER['REQUEST_URI'];
@@ -92,7 +95,7 @@ function user_notes_display_column($val, $col_name, $user_id) {
         <?php echo wpautop($notes); ?>
         <p><a href="<?php echo admin_url('user-edit.php?user_id=' . $user_id . '#wp-user_notes_note-wrap'); ?>"><?php _e('Edit Note'); ?></a></p>
       </div>
-      <strong><a href="#TB_inline<?php echo $delim; ?>inlineId=user_notes_thickbox_<?php echo $user_id; ?>" class="thickbox" title="<?php echo $title; ?>"><?php _e('View', 'user-notes'); ?></a></strong>
+      <strong><a href="#TB_inline<?php echo $delim; ?>inlineId=user_notes_thickbox_<?php echo $user_id; ?>" class="thickbox" title="<?php echo $title; ?>" style="color:navy;"><?php _e('View Note', 'user-notes'); ?></a></strong>
     <?php
     
     return ob_get_clean();
