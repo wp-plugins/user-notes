@@ -2,7 +2,7 @@
 Contributors: cartpauj
 Tags: user, users, note, notes, individual, private, private user notes, record, records
 Requires at least: 3.8
-Tested up to: 4.0
+Tested up to: 4.2
 Stable tag: 1.0.1
 
 Keep private notes about each of your users that only Administrators can see.
